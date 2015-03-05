@@ -1,0 +1,4 @@
+en:
+  admin:
+    table_headers:
+      rollback: "Rollback"
