@@ -49,10 +49,10 @@
       dialog.find('.cancel-action').unbind().click(function(){
         dialog.modal('hide');
         return false;
-      }).html('Cancel');
+      }).html(table.data('cancel'));
 
       dialog.find('#version tr').prettyTextDiff();
-      saveButton.attr('href', table.data('rollbackurl')).html('Rollback');
+      saveButton.attr('href', table.data('rollbackurl')).data('confirm', table.data('confirm')).html(table.data('rollback'));
     },
 
     _getModal: function() {

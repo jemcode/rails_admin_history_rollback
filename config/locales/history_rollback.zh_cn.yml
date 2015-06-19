@@ -1,0 +1,10 @@
+en:
+  admin:
+    history_rollback:
+      cancel: "取消"
+      confirm: "确定要还原？"
+      table_headers:
+        changes: "变化"
+        field: "字段"
+        rollback: "还原"
+        view_changes: "查看"

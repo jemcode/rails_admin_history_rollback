@@ -1,4 +1,10 @@
 en:
   admin:
-    table_headers:
-      rollback: "Rollback"
+    history_rollback:
+      cancel: "Cancel"
+      confirm: "Are you sure?"
+      table_headers:
+        changes: "Changes"
+        field: "Field"
+        rollback: "Rollback"
+        view_changes: "View changes"
