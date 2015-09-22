@@ -46,15 +46,15 @@ module RailsAdmin
 
                 if @result
                   if @version.event == "create"
-                    flash[:success] = "Rolled back newly-created record by destroying it."
+                    flash[:success] = t 'admin.history_rollback.rollback_destroy'
                   else
-                    flash[:success] = "Rolled back changes to this record."
+                    flash[:success] = t 'admin.history_rollback.rollback_success'
                   end
                 else
-                  flash[:error] = "Couldn't rollback. Sorry."
+                  flash[:error] = t 'admin.history_rollback.rollback_impossible'
                 end
               rescue ActiveRecord::RecordNotFound
-                flash[:error] = "Version does not exist."
+                flash[:error] = t 'admin.history_rollback.version_not_found'
                 redirect_to :action => :history_index
               end
 

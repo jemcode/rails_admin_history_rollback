@@ -8,3 +8,7 @@ en:
         field: "Field"
         rollback: "Rollback"
         view_changes: "View changes"
+      rollback_destroy: "Rolled back newly-created record by destroying it."
+      rollback_success: "Rolled back changes to this record."
+      rollback_impossible: "Couldn't rollback. Sorry."
+      version_not_found: "Version does not exist."
