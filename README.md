@@ -27,15 +27,16 @@ Simply enable paper_trail on your model `--with-changes --with-associations` and
 rails generate paper_trail:install --with-changes --with-associations
 ```
 
-On file ```rails_admin.rb``` uncomment the lines 
+In the `rails_admin.rb` initializer, uncomment the following lines to enable auditing:
+
 ```ruby
 history_index
 history_show
 ```
 
-You may need to ```require "paper_trail"``` in ```application.rb```
+You may also need to `require "paper_trail"` in `application.rb`
 
-## Screenshot
+## Screenshots
 
 ![History view](https://github.com/rikkipitt/rails_admin_history_rollback/raw/master/screenshots/history.png "history view")
 
