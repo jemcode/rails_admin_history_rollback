@@ -21,11 +21,19 @@ E.g. `gem 'paper_trail', '~> 4.0.0.beta'`
 
 
 ## Configuration
-Simply enable paper_trail on your model `--with-changes` and set up as usual by following the [paper_trail](https://github.com/airblade/paper_trail) instructions.
+Simply enable paper_trail on your model `--with-changes --with-associations` and set up as usual by following the [paper_trail](https://github.com/airblade/paper_trail) instructions.
 
 ```bash
-rails generate paper_trail:install --with-changes
+rails generate paper_trail:install --with-changes --with-associations
 ```
+
+On file ```rails_admin.rb``` uncomment the lines 
+```ruby
+history_index
+history_show
+```
+
+You may need to ```require "paper_trail"``` in ```application.rb```
 
 ## Screenshot
 
