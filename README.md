@@ -34,7 +34,22 @@ history_index
 history_show
 ```
 
+## Notes
+
 You may also need to `require "paper_trail"` in `application.rb`
+
+As pointed out in issue [#8](https://github.com/rikkipitt/rails_admin_history_rollback/issues/8), `paper_trail` master branch and release [v5.0.0](https://github.com/airblade/paper_trail/blob/master/CHANGELOG.md#500-unreleased) (when available) causes session issues. Login is reset by devise; `paper_trail` tries to access to the `current_user` variable before `devise` ([airblade/paper_trail#556](https://github.com/airblade/paper_trail#556)).
+
+The fix is to manually add `set_paper_trail_whodunnit` before_action as advised here: (https://github.com/airblade/paper_trail#finding-out-who-was-responsible-for-a-change) 
+
+```ruby
+# app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  [...]
+  before_action :set_paper_trail_whodunnit
+  [...]
+end
+```
 
 ## Screenshots
 
