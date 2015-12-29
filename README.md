@@ -3,6 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/rails_admin_history_rollback.svg)](http://badge.fury.io/rb/rails_admin_history_rollback)
 [![Dependency Status](https://gemnasium.com/rikkipitt/rails_admin_history_rollback.svg)](https://gemnasium.com/rikkipitt/rails_admin_history_rollback)
 [![Code Climate](https://codeclimate.com/github/rikkipitt/rails_admin_history_rollback/badges/gpa.svg)](https://codeclimate.com/github/rikkipitt/rails_admin_history_rollback)
+[![ghit.me](https://ghit.me/badge.svg?repo=rikkipitt/rails_admin_history_rollback)](https://ghit.me/repo/rikkipitt/rails_admin_history_rollback)
 
 [RailsAdmin](https://github.com/sferik/rails_admin) extension for enabling users to easily visualise and revert their history audit created by the [PaperTrail](https://github.com/airblade/paper_trail) gem.
 
