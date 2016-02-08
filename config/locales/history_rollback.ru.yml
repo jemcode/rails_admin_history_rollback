@@ -1,0 +1,14 @@
+ru:
+  admin:
+    history_rollback:
+      cancel: "Отмена"
+      confirm: "Вы уверены?"
+      table_headers:
+        changes: "Изменения"
+        field: "Поле"
+        rollback: "Восстановить"
+        view_changes: "Посмотреть изменения"
+      rollback_destroy: "Данная версия восстановлена."
+      rollback_success: "Изменения данной версии восстановлены."
+      rollback_impossible: "Невозможно восстановить. Извините."
+      version_not_found: "Данная версия не существует."
