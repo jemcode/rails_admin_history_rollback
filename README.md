@@ -18,7 +18,7 @@ gem 'rails_admin_history_rollback'
 
 It should go without saying that this plugin also requires the paper_trail gem.
 
-E.g. `gem 'paper_trail'
+E.g. `gem 'paper_trail'`
 
 
 ## Configuration
