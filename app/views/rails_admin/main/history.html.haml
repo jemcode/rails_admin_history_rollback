@@ -53,6 +53,6 @@
         %td= link_to(t("admin.history_rollback.table_headers.view_changes"), "#", class: "changeset", :data => {:url => url_for(action: action(:history_index, @abstract_model).action_name, model_name: @abstract_model.to_param, version_id: object.version_id)})
 
 - unless params[:all] || !@history.respond_to?(:current_page)
-  = paginate(@history, theme: 'twitter-bootstrap', remote: true)
+  = paginate(@history, theme: 'ra-twitter-bootstrap', remote: true)
   = link_to(t("admin.misc.show_all"), send(path_method, params.merge(all: true)), class: "show-all btn pjax") unless (tc = @history.total_count) <= @history.size || tc > 100
 
