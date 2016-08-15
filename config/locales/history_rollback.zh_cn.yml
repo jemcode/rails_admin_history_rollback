@@ -8,3 +8,8 @@ zh_cn:
         field: "字段"
         rollback: "还原"
         view_changes: "查看"
+      rollback_destroy: "Rolled back newly-created record by destroying it."
+      rollback_success: "Rolled back changes to this record."
+      rollback_impossible: "Couldn't rollback. Sorry."
+      version_not_found: "Version does not exist."
+      rollback_violates_foreign_key: "Couldn't rollback: this model links to another model, which doesn't exists."
