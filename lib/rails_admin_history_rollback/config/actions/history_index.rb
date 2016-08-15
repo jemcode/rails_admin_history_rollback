@@ -56,6 +56,8 @@ module RailsAdmin
               rescue ActiveRecord::RecordNotFound
                 flash[:error] = t 'admin.history_rollback.version_not_found'
                 redirect_to :action => :history_index
+              rescue ActiveRecord::InvalidForeignKey
+                flash[:error] = t 'admin.history_rollback.rollback_violates_foreign_key'
               end
 
               redirect_to :action => :history_index
