@@ -57,3 +57,11 @@ end
 ![History view](https://github.com/rikkipitt/rails_admin_history_rollback/raw/master/screenshots/history.png "history view")
 
 ![Modal view](https://github.com/rikkipitt/rails_admin_history_rollback/raw/master/screenshots/modal.png "modal view")
+
+## About Jemcode
+
+[<img src="https://www.jemco.de/logo.svg" width="400" alt="Jemcode">][hire]
+
+This repository is maintained and funded by Jemcode Limited. We are [available for hire][hire].
+
+[hire]: https://www.jemco.de?utm_source=github
