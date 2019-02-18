@@ -1,0 +1,15 @@
+pt-BR:
+  admin:
+    history_rollback:
+      cancel: "Cancelar"
+      confirm: "Deseja continuar?"
+      table_headers:
+        changes: "Mudanças"
+        field: "Campo"
+        rollback: "Desfazer mudanças"
+        view_changes: "Ver mudanças"
+      rollback_destroy: "Mudanças desfeitas no objeto recém criado. Objeto apagado."
+      rollback_success: "Mudanças desfeitas neste objeto."
+      rollback_impossible: "Não foi possível desfazer as mudanças."
+      version_not_found: "Versão não existe."
+      rollback_violates_foreign_key: "Não foi possível desfazer mudanças: este modelo está ligado a outro, que não existe."
