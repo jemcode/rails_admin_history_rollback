@@ -24,7 +24,7 @@ module RailsAdmin
           proc do
             @general = true
             @history = @auditing_adapter && @auditing_adapter.listing_for_model(@abstract_model, params[:query], params[:sort], params[:sort_reverse], params[:all], params[:page]) || []
-            @version = PaperTrail::Version.find(params[:version_id]) if params[:version_id] rescue false
+            @version = ::PaperTrail::Version.find(params[:version_id]) if params[:version_id] rescue false
 
             if request.get? # SHOW
 
