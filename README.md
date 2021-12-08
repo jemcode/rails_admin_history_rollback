@@ -52,9 +52,9 @@ end
 
 ## Screenshots
 
-![History view](https://github.com/rikkipitt/rails_admin_history_rollback/raw/master/screenshots/history.png "history view")
+![History view](https://github.com/rikkipitt/rails_admin_history_rollback/raw/main/screenshots/history.png "history view")
 
-![Modal view](https://github.com/rikkipitt/rails_admin_history_rollback/raw/master/screenshots/modal.png "modal view")
+![Modal view](https://github.com/rikkipitt/rails_admin_history_rollback/raw/main/screenshots/modal.png "modal view")
 
 ## About Jemcode
 
