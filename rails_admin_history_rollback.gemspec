@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", ">= 4.2.0"
   s.add_dependency "rails_admin", ">= 0.6.6"
   s.add_dependency "paper_trail", ">= 3.0.6"
+  s.add_dependency "haml"
 end

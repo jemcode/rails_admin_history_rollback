@@ -1,6 +1,5 @@
 (function($) {
   $.widget("ra.history", {
-
     _create: function() {
       var widget = this;
       var dom_widget = widget.element;
@@ -90,6 +89,6 @@
   });
 })(jQuery);
 
-$(document).on('rails_admin.dom_ready', function() {
+$(document).ready(function() {
   $('#history').history();
 });
