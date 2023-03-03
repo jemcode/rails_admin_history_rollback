@@ -1,0 +1,61 @@
+<%= stylesheet_link_tag 'rails_admin/ra.history' %>
+<%= javascript_include_tag 'rails_admin/diff_match_patch' %>
+<%= javascript_include_tag 'rails_admin/jquery.pretty-text-diff' %>
+<%= javascript_include_tag 'rails_admin/ra.history' %>
+
+<table id="history" class="table table-condensed table-striped">
+  <thead>
+    <tr>
+      <th class="shrink user">
+        <%= t("admin.table_headers.username") %>
+      </th>
+      <th class="shrink items">
+        <%= t("admin.table_headers.item") %>
+      </th>
+      <th class="changes">
+        <%= t("admin.history_rollback.table_headers.changes") %>
+      </th>
+      <th class="rollback">
+        <%= t("admin.history_rollback.table_headers.rollback") %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @history.each do |t| %>
+      <% abstract_model = RailsAdmin.config(t.table).abstract_model %>
+      <tr>
+        <td>
+          <%= t.try :username %>
+        </td>
+        <% if o = abstract_model.try(:get, t.item) %>
+          <% label = o.send(abstract_model.config.object_label_method) %>
+          <% if show_action = action(:show, abstract_model, o) %>
+            <td>
+              <%= link_to(label, url_for(action: show_action.action_name, model_name: abstract_model.to_param, id: o.id), class: 'pjax') %>
+            </td>
+          <% else %>
+            <td>
+              <%= label %>
+            </td>
+          <% end %>
+        <% else %>
+          <% label = Object.const_defined?(t.table) ? t.table.constantize.model_name.human : t.table %>
+          <td>
+            <%= "#{label} ##{t.item}" %>
+          </td>
+        <% end %>
+        <td>
+          <%= t.message %>
+        </td>
+
+        <td>
+          <% if history_action = action(:history_index, abstract_model) %>
+            <%= link_to(t("admin.history_rollback.table_headers.view_changes"), "#", class: "changeset", :data => {:url => url_for(action: history_action.action_name, model_name: abstract_model.to_param, version_id: t.version_id)}) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+            
