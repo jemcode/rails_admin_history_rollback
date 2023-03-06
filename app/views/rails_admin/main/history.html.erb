@@ -41,7 +41,7 @@
         <% selected = (sort == property_name) %>
         <% sort_direction = (sort_reverse ? "headerSortUp" : "headerSortDown" if selected) %>
         <% sort_location = send(path_method, params.except("sort_reverse").merge(model_name: @abstract_model.to_param, sort: property_name).merge(selected && sort_reverse != "true" ? {sort_reverse: "true"} : {})) %>
-        <th class="header <%= column[:css_class] %> <%= sort_direction if selected %>" data-href="<%= sort_location %>">
+        <th class="header pjax <%= column[:css_class] %> <%= sort_direction if selected %>" data-href="<%= sort_location %>">
           <%= column[:link_text] %>
         </th>
       <% end %>
@@ -53,7 +53,7 @@
         <% unless object.created_at.nil? %>
           <td>
             <%= l(object.created_at, format: :long, default: l(object.created_at, format: :long, locale: :en)) %>
-          <td>
+          </td>
         <% end %>
         <td>
           <%= object.username %>
@@ -82,12 +82,12 @@
         <td>
           <%= link_to(t("admin.history_rollback.table_headers.view_changes"), "#", class: "changeset", :data => {:url => url_for(action: action(:history_index, @abstract_model).action_name, model_name: @abstract_model.to_param, version_id: object.version_id)}) %>
         </td>
-      <tr>
+      </tr>
     <% end %>
   </tbody>
 </table>
 
 <% unless params[:all] || !@history.respond_to?(:current_page) %>
   <%= paginate(@history, theme: 'ra-twitter-bootstrap') %>
-  <%= link_to(t("admin.misc.show_all"), send(path_method, params.merge(all: true)), class: "show-all btn btn-light") unless (tc = @history.total_count) <= @history.size || tc > 100 %>
+  <%= link_to(t("admin.misc.show_all"), send(path_method, params.merge(all: true)), class: "show-all btn btn-light pjax") unless (tc = @history.total_count) <= @history.size || tc > 100 %>
 <% end %>
