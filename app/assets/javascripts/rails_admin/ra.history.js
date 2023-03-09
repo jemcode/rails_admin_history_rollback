@@ -829,6 +829,7 @@ return $.widget;
   });
 })(jQuery);
 
-$(document).ready(function() {
-  $('#history').history();
-});
+$(document).on('rails_admin.dom_ready', function() {
+	$('#history').history();
+	// console.log($('#history'))
+  });
