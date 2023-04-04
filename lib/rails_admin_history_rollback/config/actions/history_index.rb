@@ -24,6 +24,7 @@ module RailsAdmin
           proc do
             @general = true
             @history = @auditing_adapter&.listing_for_model(@abstract_model, params[:query], params[:sort], params[:sort_reverse], params[:all], params[Kaminari.config.param_name]) || []
+
             version_class = @abstract_model.model.paper_trail_options.dig(:versions, :class_name).try(:constantize) || ::PaperTrail::Version
             @version = version_class.find(params[:version_id]) if params[:version_id] rescue false
 

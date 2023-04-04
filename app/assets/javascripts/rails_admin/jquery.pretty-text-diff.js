@@ -4,7 +4,7 @@
 See https://github.com/arnab/jQuery.PrettyTextDiff/
 */
 
-//= require jquery
+//= require jquery3
 
 (function() {
   var $;

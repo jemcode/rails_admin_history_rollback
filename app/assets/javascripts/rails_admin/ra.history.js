@@ -1,5 +1,6 @@
-//= require jquery
+//= require jquery3
 //= require ./version
+//= require bootstrap
 
 /*!
  * jQuery UI Widget 1.12.1
@@ -786,7 +787,9 @@ return $.widget;
 
       dialog.find('.modal-header-title').html(table.data('title'));
       dialog.find('.cancel-action').unbind().click(function(){
-        dialog.modal('hide');
+        dialog.each(function (index, element) {
+			bootstrap.Modal.getInstance(element).hide();
+		});
         return false;
       }).html(table.data('cancel'));
 
@@ -801,8 +804,8 @@ return $.widget;
             <div class="modal-dialog modal-lg">\
             <div class="modal-content">\
             <div class="modal-header">\
-              <a href="#" class="close" data-dismiss="modal">&times;</a>\
-              <h3 class="modal-header-title">...</h3>\
+			  <h3 class="modal-header-title">...</h3>\
+              <button type="button" class="btn-close" data-dismiss="modal"></button>\
             </div>\
             <div class="modal-body">\
               ...\
@@ -813,23 +816,31 @@ return $.widget;
             </div>\
             </div>\
             </div>\
-          </div>')
-          .modal({
-            keyboard: true,
-            backdrop: true,
-            show: true
-          })
-          .on('hidden.bs.modal', function(){
+          </div>').on('hidden.bs.modal', function(){
             widget.dialog.remove();   // We don't want to reuse closed modals
             widget.dialog = null;
           });
+		  new bootstrap.Modal(widget.dialog[0], {
+			keyboard: true,
+			backdrop: true,
+			focus: false,
+			show: true,
+		  }).show();
         }
       return this.dialog;
     }
   });
 })(jQuery);
 
-$(document).on('rails_admin.dom_ready', function() {
-	$('#history').history();
-	// console.log($('#history'))
-  });
+(function($) {
+    $(document).ready(function() {
+      $(document).trigger('rails_admin.dom_ready');
+    });
+
+    $(document).on('rails_admin.dom_ready', function() {
+      $('#history').history();
+      // console.log($('#history').history());
+      // console.log($('#history'))
+    });
+
+}(jQuery));
