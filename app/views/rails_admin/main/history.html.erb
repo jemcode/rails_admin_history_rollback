@@ -1,7 +1,5 @@
 <%= stylesheet_link_tag 'rails_admin/ra.history' %>
-<%= javascript_include_tag 'rails_admin/diff_match_patch' %>
-<%= javascript_include_tag 'rails_admin/jquery.pretty-text-diff' %>
-<%= javascript_include_tag 'rails_admin/ra.history' %>
+<%= javascript_include_tag 'rails_admin/main' %>
 
 <% params = request.params.except(:action, :controller, :model_name) %>
 <% query = params[:query] %>

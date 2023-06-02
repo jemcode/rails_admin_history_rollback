@@ -29,7 +29,6 @@ module RailsAdmin
             @version = version_class.find(params[:version_id]) if params[:version_id] rescue false
 
             if request.get? # SHOW
-
               if @version
                 render partial: 'version', layout: false
               else

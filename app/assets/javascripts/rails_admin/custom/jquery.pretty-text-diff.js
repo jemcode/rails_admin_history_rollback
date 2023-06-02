@@ -4,8 +4,6 @@
 See https://github.com/arnab/jQuery.PrettyTextDiff/
 */
 
-//= require jquery3
-
 (function() {
   var $;
 
