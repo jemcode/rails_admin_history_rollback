@@ -4,7 +4,6 @@
 See https://github.com/arnab/jQuery.PrettyTextDiff/
 */
 
-
 (function() {
   var $;
 

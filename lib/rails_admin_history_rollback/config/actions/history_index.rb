@@ -16,6 +16,10 @@ module RailsAdmin
           [:get, :put] # NEW / ROLLBACK
         end
 
+        register_instance_option :auditing_versions_limit do
+          500
+        end
+
         register_instance_option :route_fragment do
           'history'
         end
@@ -23,12 +27,13 @@ module RailsAdmin
         register_instance_option :controller do
           proc do
             @general = true
-            @history = @auditing_adapter && @auditing_adapter.listing_for_model(@abstract_model, params[:query], params[:sort], params[:sort_reverse], params[:all], params[:page]) || []
+            history_arr = @auditing_adapter&.latest(@action.auditing_versions_limit)
+            @history = Kaminari.paginate_array(history_arr).page(params[:page]).per(20)
+
             version_class = @abstract_model.model.paper_trail_options.dig(:versions, :class_name).try(:constantize) || ::PaperTrail::Version
             @version = version_class.find(params[:version_id]) if params[:version_id] rescue false
 
             if request.get? # SHOW
-
               if @version
                 render partial: 'version', layout: false
               else
@@ -71,7 +76,7 @@ module RailsAdmin
         end
 
         register_instance_option :link_icon do
-          'icon-book'
+          'fas fa-book'
         end
       end
     end

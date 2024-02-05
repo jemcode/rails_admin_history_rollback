@@ -3,8 +3,8 @@ module RailsAdmin
     module PaperTrail
       class VersionProxy
         def message
-           @message = @version.event
-         end
+          @message = @version.event
+        end
         def version_id
           @version.id
         end
